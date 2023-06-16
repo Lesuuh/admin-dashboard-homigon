@@ -1,0 +1,299 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root{
+    /* COLOURS */
+    --black: #333;
+    --green: #33cca8;
+    --light-green: #e6f0ee;
+    --orange: #FFC700;
+    --light-orange: #FEF9E6;
+    --white: #fff;
+    --colored-white: #fbfbfb;
+    --dark-white: #D6DEDC;
+
+    /* FONTSTYLE */
+
+    font-family: 'Quicksand', sans-serif;
+
+    background: var(--colored-white);
+
+}
+
+
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+/* REUSED STYLE */
+
+a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22.5px;
+}
+
+li{
+    list-style: none;
+}
+
+h1{
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 45px;
+}
+h2{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+}
+
+h3{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22.5px;
+}
+p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.btns{
+    width: 144px;
+    height: 56px;
+    background: #FFC700;
+    border-radius: 8px;
+    font-size: 18px;
+    color: var(--white);
+    font-weight: 700;
+    border: none;
+    outline: none;
+    cursor: pointer;
+ 
+}
+.btns:hover{
+    background: #f7c203;
+    transition: .5s;
+}
+
+input{
+    height: 56px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.search-btn{
+    width: 80px;
+    height: 54px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--orange);
+    border: none;
+    outline: 0;
+    right: 1px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+
+
+
+
+/* HEADER */
+
+header{
+    width: 100%;
+    height: 100px;
+    background: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline-start: 80px;
+    padding-inline-end: 120px;
+}
+
+.logo img{
+    width: 93px;
+    height: 70px;
+    cursor: pointer;
+}
+
+header .action-btn button{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+}
+
+/* MAIN */
+main{
+    display: flex;
+}
+
+
+/* SIDEBAR */
+aside{
+    min-width: 15%;
+    height: 100vh;
+    background: var(--green);
+    display: flex;
+    justify-content: center;
+    top: 100px;
+    
+}
+
+aside .menu-list{
+    padding-block-start: 50px;
+    display: flex;
+    flex-flow: column;
+    gap: 25px;
+}
+
+
+aside .active-page{
+    color: var(--white);
+}
+aside .not-active-page{
+    color: var(--black);
+}
+
+
+/* SECTION */
+section{
+    padding: 20px 40px;
+    margin: 40px;
+    background: var(--white);
+    border-radius: 8px;
+    width: 1144px;
+}
+
+.summary-wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-block-start: 38px;
+}
+
+.summary-card{
+    width: 264px;
+    height: 144px;
+    box-shadow: 0px 4px 4px rgba(255, 199, 0, 0.1);
+    border-radius: 8px;
+    background: var(--dark-white);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.listing_activities{
+    margin-block-start: 80px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+}
+
+.inactive_listing .input-search{
+    position: relative;
+    width: 300px;
+    height: 56px;
+    margin-block-start: 20px;
+    
+}
+
+.inactive_listing .input-search input{
+    height: 56px;
+    width: 300px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    padding: 10px;
+    font-size: 1rem;
+}
+.inactive_listing .input-search button{
+    position: absolute;
+    width: 80px;
+    height: 54px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--orange);
+    border: none;
+    outline: 0;
+    right: 1px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+
+}
+
+.recent_activities .chart-control-btns{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-flow: row;
+    align-items: center;
+    margin-block-start: 20px;
+}
+
+.recent_activities button{
+    border: none;
+    outline: 0;
+    background: transparent;
+    cursor: pointer;
+}
+.recent_activities select{
+    width: 200px;
+    height: 56px;
+    border: 2px solid var(--orange);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 5'%3E%3Cpolygon points='5 0 10 5 0 5'/%3E%3C/svg%3E"); /* Add custom arrow */
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 10px 5px;
+    font-weight: 700;
+}
+
+
+/* USERS */
+
+.users{
+    margin-block-start: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-users .search{
+    max-width: 500px;
+    position: relative;
+
+}
+
+.search-users .search input{
+    height: 56px;
+    width: 500px;
+}
+
+.search-users .search button{
+    position: absolute;
+}
+
+.filter{
+    
+}
