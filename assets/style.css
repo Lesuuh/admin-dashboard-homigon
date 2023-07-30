@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 :root{
@@ -30,6 +29,10 @@
     box-sizing: border-box;
     
     font-family: 'Quicksand', sans-serif;
+}
+
+body{
+    display: grid;
 }
 
 
@@ -68,6 +71,12 @@ p{
     line-height: 20px;
 }
 
+svg{
+    font-size: 1.6rem;
+}
+.fa-2xl{
+    font-size: 1.6rem;
+}
 .btns{
     width: 144px;
     height: 56px;
@@ -108,9 +117,83 @@ input{
     place-items: center;
     cursor: pointer;
 }
+.search{
+    /* color: #fff; */
+    font-size: 1.5rem;
+}
 
+.circle{
+    width: 2.56rem;
+    height: 2.56rem;
+    background: #33cca8;
+    border-radius: 100%;
+    position: relative;
+}
 
+.circle img{
+    position: absolute;
+    color: #fff;
+    font-size: 1.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+}
 
+.card--details{
+    background: rgba(51, 51, 51, 0.70);
+    height: 4.8rem;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding-inline: 20px;
+}
+
+.card--icons{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    gap: 10px;
+    
+}
+
+.card--icon{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.card--icon h3{
+    color: #fff;
+}
+.card--price{
+    color: #fff;
+}
+
+.location-time{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 20px;
+}
+
+.time, .location{
+    display: flex;
+    align-items: center;
+}
+.icon--time, .icon--location{
+    color: #FFC700;
+}
+
+/* removing native style */
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+
+/* For Mozilla Firefox */
+input[type="search"]::-moz-search-cancel-button {
+    display: none;
+}
 
 
 /* HEADER */
@@ -138,18 +221,20 @@ header .action-btn button{
     background: transparent;
     color: var(--white);
     cursor: pointer;
+    font-size: 1.125rem;
 }
 
 /* MAIN */
 main{
-    display: flex;
+    display: grid;
+    grid-template-columns: 18.5rem 1fr;
+    height: 100vh;
 }
 
 
 /* SIDEBAR */
 aside{
-    min-width: 15%;
-    height: 100vh;
+    height: 100%;
     background: var(--green);
     display: flex;
     justify-content: center;
@@ -179,7 +264,8 @@ section{
     margin: 40px;
     background: var(--white);
     border-radius: 8px;
-    width: 1144px;
+    margin-inline: 60px;
+    /* width: 71.5rem; */
 }
 
 .summary-wrapper{
@@ -189,7 +275,7 @@ section{
     margin-block-start: 38px;
 }
 
-.summary-card{
+.summary-card, .user-card{
     width: 264px;
     height: 144px;
     box-shadow: 0px 4px 4px rgba(255, 199, 0, 0.1);
@@ -203,9 +289,9 @@ section{
 
 .listing_activities{
     margin-block-start: 80px;
-    display: flex;
-    justify-content: space-between;
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* max-width: 800px; */
 }
 
 .inactive_listing .input-search{
@@ -237,8 +323,62 @@ section{
     border-radius: 8px;
     display: grid;
     place-items: center;
+    cursor: pointer;
 
 }
+
+.property-card{
+    width: 18.8rem;
+    margin-top: 6rem;
+}
+
+.property-card .img-background{
+    position: relative;
+}
+.property-card .card--details{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.property-card .description{
+    padding-inline: 1.8rem;
+    height: 9.4rem;
+    background: var(--secondary-green, #EFFAF8);
+    border-radius: 0 0 0.5rem 0.5rem;
+    display: grid;
+    place-content: center;
+    gap: 10px;
+}
+
+.inactive_listing .see-all{
+    width: 18.8rem;
+}
+
+.inactive_listing .see-all-btn{
+    outline: none;
+    border: none;
+    color: #FFC700;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 20px;
+    background: none;
+    float: right;
+    cursor: pointer;
+}
+
+
+.inactive_listing .see-all-btn:hover{
+    color: #f7c203;
+}
+
+
+
+/* chartside */
 
 .recent_activities .chart-control-btns{
     display: flex;
@@ -271,10 +411,98 @@ section{
 }
 
 
-/* USERS */
 
-.users{
-    margin-block-start: 80px;
+/* MODAL */
+.modal-backdrop {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+    pointer-events: none;
+
+  }
+
+.inactive{
+    display: none;
+    justify-content: center;
+    flex-flow: column;
+    width: 72rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #EFFAF8;
+    border-radius: 0.5rem;
+    padding-inline: 5rem;
+    padding-block: 2.5rem;
+    height: 800px;
+    z-index: 3;
+    transition: 5s;
+
+}
+
+.input-search{
+    position: relative;
+    width: 31rem;
+    height: 3.5rem;
+    align-self: flex-end;
+    margin-top: 1.5rem;
+}
+
+.input-search input{
+    width: 31rem;
+    height: 3.5rem;
+}
+
+.input-search button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5rem;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    background: #FFC700;
+    cursor: pointer;
+    color: #F8F8FF;
+    
+}
+
+.card-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 1000px;
+    overflow-y: auto;
+    margin-block: 2.5rem;
+}
+
+
+
+
+/*-------------- USERS ---------------------*/
+
+.users-section h1{
+    color: #333;
+}
+
+.users-section .users-card{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10rem;
+}
+
+
+.users-card button{
+    align-self: flex-start;
+}
+
+.search-users{
+    margin-block: 5rem;
     display: flex;
     justify-content: space-between;
 }
@@ -285,6 +513,17 @@ section{
 
 }
 
+.search-users .filter{
+    display: flex;
+    align-items: center;
+    color: #FFC700;
+    cursor: pointer;
+}
+
+.search-users .filter:hover{
+    color: #f5d20d;
+}
+
 .search-users .search input{
     height: 56px;
     width: 500px;
@@ -292,8 +531,57 @@ section{
 
 .search-users .search button{
     position: absolute;
+    cursor: pointer;
 }
 
-.filter{
-    
+/* table */
+
+table{
+    margin-block: 50px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead{
+    height: 4rem;
+    background: #EFFAF8;
+    border-radius: 0.25rem;
+}
+
+.table-row{
+    height: 4rem;
+    border-right: 1px solid #33CCA8;
+    border-bottom: 1px solid #33CCA8;
+    border-left: 1px solid #33CCA8;
+}
+
+th, td{
+    padding: 0 1.5rem;
+}
+
+.nameonaccount, .more-vert{
+    color: #FFC700;
+}
+
+/* PAGINATION */
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.pagination button:hover {
+  background-color: #45a049;
+}
+
+#currentPage {
+  font-weight: bold;
 }
