@@ -2,7 +2,6 @@ const backdrop = document.querySelector(".modal-backdrop");
 const inactiveModalOpenBtn = document.getElementById("see-all");
 const inactiveModal = document.querySelector(".inactive");
 
-
 function openModal() {
   inactiveModal.style.display = "flex";
   backdrop.style.display = "block";
@@ -28,5 +27,8 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// ------ Table-------
+// modal content
 
+const cardData = [{ id: "1" }];
+
+const cardContainer = document.querySelector(".card-container");
